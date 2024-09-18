@@ -19,20 +19,7 @@ class IWeatherSensor {
 /// without needing the actual Sensor during development
 
 class SensorStub : public IWeatherSensor {
- public:
-    int Humidity;
-    int Precipitation;
-    double TemperatureInC;
-    int WindSpeedKMPH;
-
-    SensorStub(int hum , int prec, double tempInc, int windspeed):
-        Humidity(hum),
-        Precipitation(prec),
-        TemperatureInC(tempInc),
-        WindSpeedKMPH(windspeed)
-    {
-    }
-
+ 
     int Humidity() const override {
         return Humidity;
     }
@@ -48,6 +35,21 @@ class SensorStub : public IWeatherSensor {
     int WindSpeedKMPH() const override {
         return WindSpeedKMPH;
     }
+
+public:
+    int Humidity;
+    int Precipitation;
+    double TemperatureInC;
+    int WindSpeedKMPH;
+
+    SensorStub(int hum, int prec, double tempInc, int windspeed) :
+        Humidity(hum),
+        Precipitation(prec),
+        TemperatureInC(tempInc),
+        WindSpeedKMPH(windspeed)
+    {
+    }
+
 };
 
 // This is a function to predict the weather, based on readings
@@ -81,7 +83,7 @@ void TestRainy() {
 void TestHighPrecipitationAndLowWindspeed() {
     // This instance of stub needs to be different-
     // to give high precipitation (>60) and low wind-speed (<50)
-    SensorStub sensor = {78,70,26.0,45};
+    SensorStub sensor = { 72, 70, 26, 49 };
 
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
