@@ -42,14 +42,12 @@ public:
     double TemperatureInC;
     int WindSpeedKMPH;
 
-    SensorStub(int hum, int prec, double tempInc, int windspeed) :
+    SensorStub(int hum, int prec, double tempInc, int windspeed):
         Humidity(hum),
         Precipitation(prec),
         TemperatureInC(tempInc),
         WindSpeedKMPH(windspeed)
-    {
-    }
-
+    {}
 };
 
 // This is a function to predict the weather, based on readings
