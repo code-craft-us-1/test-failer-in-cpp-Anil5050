@@ -19,12 +19,12 @@ class IWeatherSensor {
 /// without needing the actual Sensor during development
 
 class SensorStub : public IWeatherSensor {
-private:
+ public:
     int Humidity;
     int Precipitation;
     double TemperatureInC;
     int WindSpeedKMPH;
-public:
+
     SensorStub(int hum , int prec, double tempInc, int windspeed) 
     {
         Humidity = hum;
