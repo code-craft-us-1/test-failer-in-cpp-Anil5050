@@ -19,7 +19,6 @@ class IWeatherSensor {
 /// without needing the actual Sensor during development
 
 class SensorStub : public IWeatherSensor {
- 
     int Humidity() const override {
         return Humidity;
     }
@@ -36,13 +35,13 @@ class SensorStub : public IWeatherSensor {
         return WindSpeedKMPH;
     }
 
-public:
+ public:
     int Humidity;
     int Precipitation;
     double TemperatureInC;
     int WindSpeedKMPH;
 
-    SensorStub(int hum, int prec, double tempInc, int windspeed):
+    SensorStub(int hum, int prec, double tempInc, int windspeed) :
         Humidity(hum),
         Precipitation(prec),
         TemperatureInC(tempInc),
